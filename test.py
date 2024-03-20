@@ -51,6 +51,11 @@ MAE = mean_absolute_error(yTest, y_pred)
 # Print MAE
 print("Mean Absolute Error:", MAE)
 
+# Print bar char
+df1 = startups.head(10)
+df1.plot(kind="bar", figsize=(10,10))
+plt.grid(which="major",linestyle="-", linewidth="0.5",color="green")
+
 # Print model intercept and coefficients
 print('Intercept of the model:\n', lm.intercept_)
 print("="*50)
@@ -70,3 +75,4 @@ print(model.summary())
 x = x.drop(['Administration', 'Marketing Spend', 'State'], axis=1)
 model = sm.OLS(y.astype(float), x.astype(float)).fit()
 print(model.summary())
+plt.show()
